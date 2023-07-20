@@ -10,8 +10,9 @@ import Hi.coretest.order.OrderServiceImpl;
 
 public class OrderWeb {
     public static void main(String[] args) {
-        MemberService memberService =new MemberServiceImpl();
-        OrderService orderService=new OrderServiceImpl();
+        AppConfig appConfig =new AppConfig();
+        OrderService orderService = appConfig.orderService();
+        MemberService memberService = appConfig.memberService();
         Member member = new Member(1L, "UserA", Grade.VIP);
 
         memberService.join(member);

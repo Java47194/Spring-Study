@@ -5,16 +5,14 @@ import Hi.coretest.member.*;
 public class MemberApp {
 
     public static void main(String[] args) {
-        MemberService memberService = new MemberServiceImpl();
-        Member member = new Member(1L,"UserA", Grade.VIP);
+      AppConfig appConfig=new AppConfig();
+        MemberService memberService = appConfig.memberService();
+        Member member = new Member(1L,"user",Grade.VIP);
         memberService.join(member);
+        Member member1 = memberService.findMember(1l);
 
-        System.out.println(member.toString());
-
-        Member member1 = memberService.findMember(1L);
-
+        System.out.println("member = " + member);
         System.out.println("member1 = " + member1);
-        
 
 
     }

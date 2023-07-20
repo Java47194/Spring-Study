@@ -1,5 +1,6 @@
 package Hi.coretest.discount;
 
+import Hi.coretest.AppConfig;
 import Hi.coretest.member.Grade;
 import Hi.coretest.member.Member;
 import Hi.coretest.member.MemberService;
@@ -8,10 +9,9 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class RateDiscountPolicyTest {
-    MemberService memberService=new MemberServiceImpl();
+    AppConfig appConfig=new AppConfig();
+    MemberService memberService= appConfig.memberService();
     DiscountPolicy discountPolicy=new RateDiscountPolicy();
 
     long id= 1L;
