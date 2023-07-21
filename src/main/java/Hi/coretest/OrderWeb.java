@@ -17,7 +17,7 @@ public class OrderWeb {
 
         memberService.join(member);
 
-        Order itemA = orderService.createOrder(1L, "itemA", 10000);
+        Order itemA = orderService.createOrder(1L, "itemA", 20000);
         int i = itemA.calculatePrice();
 
         System.out.println(i);
