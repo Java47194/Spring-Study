@@ -16,6 +16,10 @@ public class AppConfig {
         return new MemberServiceImpl(memberRepository());
     }
 
+    /*public MemberService memberService(){
+        return new MemberServiceImpl(new MemoryMemberRepository());
+    }*/
+
     private static MemoryMemberRepository memberRepository() {
         return new MemoryMemberRepository();
     }
