@@ -3,6 +3,7 @@ package Hi.coretest.beanfind;
 import Hi.coretest.AppConfig;
 import Hi.coretest.member.MemberService;
 import Hi.coretest.member.MemberServiceImpl;
+import Hi.coretest.singleton.SingletonService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -48,4 +49,6 @@ public class ApplicationBasicFindTest {
         assertThrows(NoSuchBeanDefinitionException.class,() ->
                 ac.getBean("xxxx", MemberService.class) );
     }
+
+
 }
