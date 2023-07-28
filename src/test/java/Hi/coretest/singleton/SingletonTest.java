@@ -8,6 +8,7 @@ import Hi.coretest.member.MemoryMemberRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -58,6 +59,19 @@ public class SingletonTest {
         System.out.println("instance2 = " + instance2);
 
         Assertions.assertThat(instance1).isSameAs(instance2);
+    }
+
+    @Test
+    @DisplayName("스프링 컨테이너와 싱글톤")
+    void 스프링컨테이너(){
+        ApplicationContext ac =new AnnotationConfigApplicationContext(TestAppConfig.class);
+
+        MemberService memberService1 = ac.getBean(MemberService.class);
+        MemberService memberService2 = ac.getBean(MemberService.class);
+        System.out.println("memberService1 = " + memberService1);
+        System.out.println("memberService2 = " + memberService2);
+
+
     }
 
     @Configuration
