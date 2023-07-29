@@ -20,25 +20,49 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppConfig {
     //AppCongig 리펙토링
+
+    //내생각
+    //memberService call
+    //memberRepository call
+    //memberRepository call
+    //orderService call
+    //memberRepository call
+
+
+    //현실
+    //memberService call
+    //memberRepository call
+    //orderService call
+
+
     @Bean
     public MemberService memberService(){
+        System.out.println("memberService call");
         return new MemberServiceImpl(memberRepository());
     }
 
     /*public MemberService memberService(){
         return new MemberServiceImpl(new MemoryMemberRepository());
     }*/
+
+
+   /* 중요 ★★★★★★★★★★
+   @Configuration 과 @Bean의 조합으로 static을 사용하면 싱글톤을 보장을 못받는다.
+   */
+
     @Bean
-    public static MemoryMemberRepository memberRepository() {
+    public MemoryMemberRepository memberRepository() {
+        System.out.println("memberRepository call");
         return new MemoryMemberRepository();
     }
     @Bean
     public OrderService orderService(){
+        System.out.println("orderService call");
         return new OrderServiceImpl(memberRepository(), discountPolicy());
 
     }
     @Bean
-    public static DiscountPolicy discountPolicy() {
+    public  DiscountPolicy discountPolicy() {
         //return new FixDiscountPolicy();
         return new RateDiscountPolicy();
     }
