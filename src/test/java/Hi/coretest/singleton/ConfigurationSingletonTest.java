@@ -28,4 +28,15 @@ public class ConfigurationSingletonTest {
 
         assertThat(memberService.getMemberRepository()).isSameAs(orderService.getMemberRepository());
     }
+    
+    @Test
+    void configurationDepp(){
+        //AppConfig.class @Configuration 설정 정보 주석처리 하기
+        //주석 처리 하면 싱글톤은 꺠진다
+        ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+        AppConfig bean = ac.getBean(AppConfig.class);
+        System.out.println("bean = " + bean);
+
+
+    }
 }
