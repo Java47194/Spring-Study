@@ -2,7 +2,9 @@ package Hi.coretest.discount;
 
 import Hi.coretest.member.Grade;
 import Hi.coretest.member.Member;
+import org.springframework.stereotype.Component;
 
+@Component
 public class RateDiscountPolicy implements DiscountPolicy {
     private int disCountPercent=10;
     @Override
