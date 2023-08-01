@@ -8,6 +8,8 @@ import static org.springframework.context.annotation.ComponentScan.*;
 
 @Configuration
 @ComponentScan(
+        basePackages = "Hi.coretest.member",
+        basePackageClasses = AutoAppConfig.class,
         excludeFilters = @Filter(type = FilterType.ANNOTATION , classes = Configuration.class)
 )
 public class AutoAppConfig {
