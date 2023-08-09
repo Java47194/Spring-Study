@@ -13,6 +13,7 @@ public class AutoWiredTest {
     @Test
     void AutoWiredOption(){
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(TestBean.class);
+        ac.getBean("setNoBean");
 
     }
 
