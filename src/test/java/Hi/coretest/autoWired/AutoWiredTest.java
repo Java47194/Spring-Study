@@ -13,16 +13,16 @@ public class AutoWiredTest {
     @Test
     void AutoWiredOption(){
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(TestBean.class);
-        ac.getBean("setNoBean");
+
 
     }
 
     static class TestBean{
-
+/*
         @Autowired(required = true)//에러 왜 member가 빈으로 등록 안되있어서 그래서 false로 해야됌
         public void setNoBean1(Member member){
             System.out.println("member1 = " + member);
-        }
+        }*/
 
         @Autowired(required = false)//에러 왜 member가 빈으로 등록 안되있어서 그래서 false로 해야됌
         public void setNoBean2(Member member){
