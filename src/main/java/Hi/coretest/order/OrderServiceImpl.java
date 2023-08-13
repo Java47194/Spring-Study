@@ -5,10 +5,11 @@ import Hi.coretest.member.Member;
 import Hi.coretest.member.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-@RequiredArgsConstructor //Lombok 기능: final이 붙은 필드를 모아  생성자를 자동으로 만들어줌
+//@RequiredArgsConstructor //Lombok 기능: final이 붙은 필드를 모아  생성자를 자동으로 만들어줌
 public class OrderServiceImpl implements OrderService{
     private final MemberRepository memberRepository;
     //private final DiscountPolicy discountPolicy=new FixDiscountPolicy();
@@ -25,11 +26,13 @@ public class OrderServiceImpl implements OrderService{
     public void setDiscountPolicy(DiscountPolicy discountPolicy) {
         this.discountPolicy = discountPolicy;
     }*/
-
-  /*  public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+    @Autowired
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
-    }*/
+    }
+    //메인db는 @primary 사용
+    //서브db는 @Quilifier 사용
 
 
     @Override
